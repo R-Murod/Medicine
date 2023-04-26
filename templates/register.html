@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="login-form-container" style="padding-top: 100px; text-align: center;">
+    <h3 class="login-form-title header-head" style="margin-top: 40px; font-size: 30px;">Форма регистрация</h3>
+    <form class="login-form" action="/register/" method="POST" >
+        <br><br>
+        {% csrf_token %}
+        <input class="form-input" type="text" style="height: 50px; width: 250px; text-align: center; font-size: 15px;" name="phone" placeholder="87*********" >
+        <br><br>
+        <button class="btn btn-outline-success" style="margin-bottom: 20px; padding: 5px;">Регистрация</button>
+        <br>
+    </form>
+</div>
+{% endblock %}

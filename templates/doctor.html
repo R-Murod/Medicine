@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+    <!--? Hero Start -->
+    <div class="slider-area2">
+        <div class="slider-height2 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap hero-cap2 text-center">
+                        <h2>Дәрігерлер</h2>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+    <!--? Team Start -->
+    <div class="team-area section-padding30">
+        <div class="container">
+            <!-- Section Tittle -->
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section-tittle text-center mb-100">
+                        <span>Біздің дәрігерлер</span>
+                        <h2>Үздік дәрігерлер</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for d in doctors %}
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
+                        <div class="single-team mb-30">
+                            <div class="team-img">
+                                <img src="/media/{{ d.logo }}/" alt="">
+                            </div>
+                            <div class="team-caption">
+                                <h3><a href="#">{{ d.name }}</a></h3>
+                                <span>{{ d.profession }}</span>
+                                <!-- Team social -->
+                                <div class="team-social">
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fas fa-globe"></i></a>
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+    </main>
+{% endblock %}

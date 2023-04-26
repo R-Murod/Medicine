@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container ">
+
+    <div class="card-columns" style="padding: 10px; margin: 20px;">
+        <div class="card" align="centre " style="width: 32rem; border:5px black solid">
+            <div class="card-body">
+                <h5 class="card-title">Балл: {{score}}</h5>
+                <p class="card-text">Процент: {{percent}}%</p>
+                <p class="card-text">Уақыт: {{time}} секунд</p>
+                <p class="card-text">Дұрыс жауап: {{correct}}</p>
+                <p class="card-text">Бұрыс жауап: {{wrong}}</p>
+                <p class="card-text">Жалпы сұрақ: {{total}}</p>
+                <h5>Келесі сынаққа сәттілік!</h5>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+    <!--? Hero Start -->
+    <div class="slider-area2">
+        <div class="slider-height2 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap hero-cap2 text-center">
+                            <h2>Вопрос и ответ</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+    <!--================Blog Area =================-->
+    <section class="blog_area section-padding">
+        <div class="container" style="margin-right: 0;">
+            <div class="row">
+                <div class="col-lg-8 mb-5 mb-lg-0">
+                    <div class="blog_left_sidebar">
+                        <form action="">
+                            <div class="form-group">
+                                <label>Select Category</label>
+                                <select name="category" class="form-control">
+                                    <option value="choose">Choose</option>
+                                    {% for c in categories %}
+                                        <option value="{{ c.category_name }}">{{ c.category_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <button style="padding: 6px;" class="btn btn-danger">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================Blog Area =================-->
+</main>
+{% endblock %}

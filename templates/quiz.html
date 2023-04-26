@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+    <!--? Hero Start -->
+    <div class="slider-area2">
+        <div class="slider-height2 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap hero-cap2 text-center">
+                            <h2>Вопрос и ответ</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+    <!--================Blog Area =================-->
+    <section class="blog_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mb-5 mb-lg-0">
+                    <div class="blog_left_sidebar">
+                        <div id="app">
+                            <h2>Give Quiz</h2>
+                            <div v-for="question in question">
+                                <hr>
+                                <p>[[question.question]]</p>
+                                <div class="form-check" v-for="answer in question.answers">
+                                    <input type="radio" name="flexRadioDefault">
+                                    <label>
+                                        [[answer.answer]]
+                                    </label>
+                                </div>
+                                <br>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        delimiters: ['[[', ']]'],
+        data() {
+            return {
+                category: '{{category}}',
+                question: []
+            }
+        },
+        methods: {
+            getQuestions(){
+                var _this = this
+                fetch(`http://127.0.0.1:8000/api/get-quiz?category=${this.category}`)
+                .then(response => response.json())
+                .then(result => {
+                    console.log(result)
+                    _this.questions = result.data
+                })
+            }
+        },
+        created(){
+            this.getQuestions()
+        },
+    });
+
+</script>
+{% endblock %}
